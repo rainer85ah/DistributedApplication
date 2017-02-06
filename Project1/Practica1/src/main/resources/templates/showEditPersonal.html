@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	
+	<title>Bienvenido al parque internacional</title>
+	
+	<link rel="stylesheet" href="css/skel.css"/> 
+	<link rel="stylesheet" href="css/style.css"/> 
+	<link rel="stylesheet" href="css/search.css"/>
+</head>
+
+<body class="homepage">
+
+		<!-- Header Wrapper -->
+			<div class="wrapper style1">
+			
+			<!-- Header Wrapper -->
+			<div class="wrapper style1">
+			
+			<!-- Header -->
+				<div id="header">
+					<div class="container">
+							
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li class="active"><a href="/">Home</a></li>
+									<li><a href="/map">Mapa del parque</a></li>
+									<li><a href="/searchEspecie">Especies</a></li>
+									<li><a href="/searchPersonal">Personal</a></li>
+								</ul>
+							</nav>
+	
+					</div>
+				</div>
+			
+			<!-- Banner -->
+				<div id="banner">
+					<section class="container">
+						<h2>Editar personal</h2>
+					</section>
+				</div>
+
+			</div>
+		
+		<!-- Section One -->
+			<div class="wrapper style2">
+				<section class="container">
+					<div class="row double">
+						<div class="6u">
+							<h3>Editar empleado</h3>
+							<p>Introduce los campos a continuación:</p>
+							
+							<form action="/editPersonal" method="post" >
+								Nombre: (No se puede editar)
+								<input type="text" name="name" th:value="${person.name}" pattern="^[a-zA-Z]*$" readonly="true" /> <br></br>
+								
+								Apellidos: (No se puede editar)
+								<input type="text" name="lastname" th:value="${person.lastname}" pattern="^[a-zA-Z]*$" readonly="true"/> <br></br>
+							 	
+							 	Email:
+							 	<input type="email" name="email" th:value="${person.email}" /> <br></br>
+							 	  
+							 	Teléfono fijo (9 dígitos comenzando por 9, 8, 7 o 6): 
+							 	<input type="text" pattern="^[9|8|7|6]\d{8}$" name="telephone" th:value="${person.telephone}" > </input><br></br>
+							 	 
+							 	Teléfono móvil (9 dígitos comenzando por 6): 
+								<input type="text" pattern="^[6]\d{8}$" name="mobile" th:value="${person.mobile}"> </input><br></br>
+								  
+								Imagen: "ray.jpg", "silvi.jpg", "sofy.jpg", "pepe.jpg" 
+								  "ana.jpg", "angel.jpg", "noelia.jpg", "pao.jpg"
+								<input type="text" name="image_url" value="nombre.jpg" th:value="${person.image_url}" />
+								<br></br>
+								  
+								<label  th:text="'Puesto de trabajo: ' + ${person.job}"></label>
+								<br></br>
+								<select class="selectEspecie" name="job">
+									 <option value="ADMINISTRACION" selected="selected" th:text="ADMINISTRACION" />
+									 <option value="VIGILANCIA" th:text="VIGILANCIA" />
+									 <option value="PRESERVACION" th:text="PRESERVACION" />
+									 <option value="INVESTIGACION" th:text="INVESTIGACION" />
+								</select>
+								<br></br>
+								<input class="button" type="submit" value="Guardar"></input>
+							</form> 
+						</div>
+						
+					</div>
+				</section>
+			</div>
+
+		
+	<!-- Footer -->
+		<div id="footer">
+			<section class="container">
+				<header class="major">
+					<h2>Conecta con nosotros</h2>
+					<span class="byline">Búscanos en las redes sociales</span>
+				</header>
+				<ul class="icons">
+					<li class="active"><a href="#" class="fa fa-facebook"><span>Facebook</span></a></li>
+					<li><a href="#" class="fa fa-twitter"><span>Twitter</span></a></li>
+					<li><a href="#" class="fa fa-google-plus"><span>Google+</span></a></li>
+				</ul>
+				<hr />
+			</section>
+			
+			<!-- Copyright -->
+				<div id="copyright">
+					Diseñado por: Rainer Arencibia, Silvia Garcia y Sofia Serrano
+				</div>			
+		</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Practica 2 - Sistemas Distribuidos - Flickr</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Buscador de imagenes en Flickr" />
+	<meta name="author" content="Rainer, Silvia y Sofia" />
+	
+	<!-- Hojas de estilo-->
+	<link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/black-tie/jquery-ui.css" />
+	
+	<!-- Ficheros javascript para dinaminizar la web-->
+	<script type="text/javascript" src="js/cufon-yui.js"></script>
+	<script type="text/javascript" src="js/cufon-replace.js"></script>
+	<script type="text/javascript" src="js/AG_Foreigner_Light-Plain_400.font.js"></script>
+	<script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
+	<script type="text/javascript" src="js/tabs.js"></script>
+	<script type="text/javascript" src="js/script.js"></script> 
+		
+	<!-- jquery -->	
+	<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	
+	<!-- Nuestros ficheros js para las consultas a Flickr -->	
+	<script type="text/javascript" src="js/datePicker.js"></script>
+	<script type="text/javascript" src="./credencialesFlickr.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>	
+</head>
+
+<body id="page1">
+	<div class="wrap"><div class="ic"><!-- HLinks --></div>
+	 <!-- header -->
+	 <header>
+			<div class="container">
+				 <h1><a href="index.html">Photo <span>Flickr Search</span></a></h1>
+				 <ul class="tabs">
+				 <h2> Busquedas: </h2>
+				<!-- 6 tipos de busquedas -->
+						<li> 
+							<p class="data"> Geolocalizacion (Lat, Lon): </p>
+							<input type="number" step="0.000001" min="-90.000000" max="90.000000" name="query1Lattext" id="query1Lattext"></br>
+							<input type="number" step="0.000001" min="-180.000000" max="180.000000" name="query1Lontext" id="query1Lontext">
+							<a id="query1btn" onclick="function()"> <span class="query1span"><span>Consulta 1</span></span> </a> 
+						</li>
+	
+						<li class="column2"> 
+							<p class="data"> Fecha Minima de captura: </p>
+							<input type="text" name="query2text" class="datepicker" id="query2text">
+							<a id="query2btn" onclick="function()"> <span><span>Consulta 2</span></span> </a> 
+						</li>
+						
+						<li> 
+							<p class="data"> Fecha Maxima de captura: </p>
+							<input type="text" name="query3text" class="datepicker" id="query3text">
+							<a id="query3btn" onclick="function()"> <span><span>Consulta 3</span></span> </a> 
+						</li>
+						
+						<li class="column2"> 
+							<p class="data"> Numero de visitas: </p>
+							<input type="number" min="0" name="query4text" id="query4text">
+							<a id="query4btn" onclick="function()"> <span><span>Consulta 4</span></span> </a> 
+						</li>
+						
+						<li> 
+							<p class="data"> Tipo de contenido: </p>
+							 <!-- <input type="text" name="query5text" id="query5text">  -->
+							<select id="query5text">
+								<option value="1">Photos only.</option>
+								<option value="2">Screenshots only.</option>
+								<option value="3">'Other' only.</option>
+								<option value="4">Screenshots and 'other'.</option>
+								<option value="5">Screenshots only.</option>
+								<option value="6">Photos and 'other'.</option>
+								<option value="7">All.</option>
+							</select> 
+							<a id="query5btn" onclick="function()"> <span><span>Consulta 5</span></span> </a> 
+						</li>
+						
+						<li class="column2"> 
+							<p class="data"> Buscar Etiquetas: </p>
+							<input type="text" name="query6text" id="query6text">
+							<a id="query6btn" onclick="function()"> <span><span>Consulta 6</span></span> </a> 
+						</li>
+				 </ul>
+				 
+				 <!-- Resultados de las busquedas-->
+				<div class="tab_container">
+					<ul class="big-image"> </ul>
+					<div class="left_container">
+						<h2> Resultado de imagenes: </h2>
+						<div class="noResult"> </div>
+						<ul class="pagination"> </ul>
+					</div>
+				</div>
+			</div>
+	 </header>
+	
+</div>
+
+</body>
+</html>
